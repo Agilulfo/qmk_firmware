@@ -6,7 +6,6 @@
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
-#define SPCL 3 // special symbols
 
 #define UNO RGUI(KC_LSFT)
 #define DUE RGUI(KC_LALT)
@@ -46,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,             KC_1,              KC_2,     KC_3,   KC_4,   KC_5,   TG(MDIA),
         KC_TAB,             KC_Q,              KC_W,     KC_E,   KC_R,   KC_T,   DUE,
-        LT(SYMB, KC_CAPS),  KC_A,              KC_S,     KC_D,   LT(SPCL, KC_F), KC_G,
+        LT(SYMB, KC_CAPS),  KC_A,              KC_S,     KC_D,   KC_F,   KC_G,
         OSM(MOD_LSFT),      CTL_T(KC_Z),       KC_X,     KC_C,   KC_V,   KC_B,   KC_TRNS,
         KC_TRNS,            KC_TRNS,           KC_LALT,  KC_LEFT,KC_RGHT,
                                                      KC_PPLS,  KC_PMNS,
@@ -145,46 +144,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_MPRV, KC_MPLY, KC_MNXT
 ),
-/* Keymap 2: Special Characters & Emojis
- *
- * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
- * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      |   è  |   é  |      |      |           |      |      |   ì  |   ò  |   ù  |      |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   à  |      |      | xxxx |      |------|           |------|      |      |      |      |      |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
- * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |      |      |      |      |      |
- *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,---------------.
- *                                        |      |      |       |      |        |
- *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      |      |       |      |        |      |
- *                                 |      |      |------|       |------|        |      |
- *                                 |      |      |      |       |      |        |      |
- *                                 `--------------------'       `----------------------'
- */
-[SPCL] = LAYOUT_ergodox(
-       KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,  KC_TRNS, UC(0xE8),UC(0xE9),KC_TRNS, KC_TRNS,
-       KC_TRNS, UC(0xE0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,
-                                                     KC_TRNS, KC_TRNS,
-                                                              KC_TRNS,
-                                            KC_TRNS, KC_TRNS, KC_TRNS,
-    // right hand
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, UC(0xF9),UC(0xEC),UC(0xF2),KC_TRNS, KC_TRNS,
-                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-       KC_TRNS, KC_TRNS,
-       KC_TRNS,
-	   KC_TRNS, KC_TRNS, KC_TRNS
-),
 /* Keymap X: Empty layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
@@ -276,7 +235,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
-  set_unicode_input_mode(UC_LNX);
 #ifdef RGBLIGHT_COLOR_LAYER_0
   rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
 #endif
