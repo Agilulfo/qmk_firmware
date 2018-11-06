@@ -8,9 +8,8 @@
 #define MDIA 2 // media keys
 #define SPCL 3 // special symbols
 
-#define UNO RGUI(KC_LALT)
-#define DUE RGUI(KC_LSFT)
-#define TRE RGUI(KC_RCTRL)
+#define UNO RGUI(KC_LSFT)
+#define DUE RGUI(KC_LALT)
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -25,13 +24,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | Esc    |   1  |   2  |   3  |   4  |   5  |  L2  |           |  L1  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  | UNO  |           | DUE  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  | DUE  |           | UNO  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | Caps/L1|   A  |   S  |   D  | F/L3 |   G  |------|           |------| H/L1 |   J  |   K  |   L  |; / L2|   '    |
- * |--------+------+------+------+------+------| TRE  |           | Meta |------+------+------+------+------+--------|
+ * |--------+------+------+------+------+------|      |           | Meta |------+------+------+------+------+--------|
  * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl|   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      | Meta | Alt  | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
+ *   |      |      | Alt  | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
  *                                        |  +   |  -   |       | PrScr| Insert |
@@ -46,16 +45,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_ESC,             KC_1,              KC_2,     KC_3,   KC_4,   KC_5,   TG(MDIA),
-        KC_TAB,             KC_Q,              KC_W,     KC_E,   KC_R,   KC_T,   UNO,
+        KC_TAB,             KC_Q,              KC_W,     KC_E,   KC_R,   KC_T,   DUE,
         LT(SYMB, KC_CAPS),  KC_A,              KC_S,     KC_D,   LT(SPCL, KC_F), KC_G,
-        OSM(MOD_LSFT),      CTL_T(KC_Z),       KC_X,     KC_C,   KC_V,   KC_B,   TRE,
-        KC_TRNS,            KC_LGUI,           KC_LALT,  KC_LEFT,KC_RGHT,
+        OSM(MOD_LSFT),      CTL_T(KC_Z),       KC_X,     KC_C,   KC_V,   KC_B,   KC_TRNS,
+        KC_TRNS,            KC_TRNS,           KC_LALT,  KC_LEFT,KC_RGHT,
                                                      KC_PPLS,  KC_PMNS,
                                                                KC_HOME,
                                             KC_SPC,  KC_BSPC,  KC_END,
         // right hand
 		     TG(SYMB),    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
-                  DUE,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
+                  UNO,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
 		        LT(SYMB, KC_H),   KC_J,  KC_K,   KC_L,   LT(MDIA, KC_SCLN),KC_QUOT,
 		      KC_LGUI,    KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_EQL,
                                   KC_UP, KC_DOWN,KC_LBRC,KC_RBRC,          KC_TRNS,
@@ -186,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
 	   KC_TRNS, KC_TRNS, KC_TRNS
 ),
-/* Keymap X: Emptc layer
+/* Keymap X: Empty layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
