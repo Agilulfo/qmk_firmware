@@ -52,10 +52,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                KC_HOME,
                                             KC_SPC,  KC_BSPC,  KC_END,
         // right hand
-		     TG(SYMB),    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
+             TG(SYMB),    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_MINS,
                   UNO,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_BSLS,
-		        LT(SYMB, KC_H),   KC_J,  KC_K,   KC_L,   LT(MDIA, KC_SCLN),KC_QUOT,
-		      KC_LGUI,    KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_EQL,
+                LT(SYMB, KC_H),   KC_J,  KC_K,   KC_L,   LT(MDIA, KC_SCLN),KC_QUOT,
+              KC_LGUI,    KC_N,   KC_M,  KC_COMM,KC_DOT, CTL_T(KC_SLSH),   KC_EQL,
                                   KC_UP, KC_DOWN,KC_LBRC,KC_RBRC,          KC_TRNS,
              KC_PSCR,      KC_INS,
              KC_PGUP,
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_MINS, KC_7,   KC_8,    KC_9,    KC_ASTR, KC_F12,
                 KC_TRNS, KC_4,   KC_5,    KC_6,    KC_PLUS, KC_TRNS,
        KC_TRNS, KC_AMPR, KC_1,   KC_2,    KC_3,    KC_BSLS, KC_TRNS,
-	                     KC_0,   KC_0,  KC_DOT,    KC_EQL,  KC_TRNS,
+                         KC_0,   KC_0,  KC_DOT,    KC_EQL,  KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*                           KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, */
 /*        KC_TRNS, KC_TRNS, */
 /*        KC_TRNS, */
-/* 	   KC_TRNS, KC_TRNS, KC_TRNS */
+/*     KC_TRNS, KC_TRNS, KC_TRNS */
 /* ), */
 };
 
@@ -225,7 +225,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case IPDB:
       if (record->event.pressed) {
-		SEND_STRING ("import ipdb; ipdb.set_trace()" SS_TAP(X_TAB));
+        SEND_STRING ("import ipdb; ipdb.set_trace()" SS_TAP(X_TAB));
       }
       return false;
       break;
