@@ -3,13 +3,28 @@
 #include "action_layer.h"
 #include "version.h"
 
+// layers
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
-#define UNO RGUI(KC_LSFT)
-#define DUE RGUI(KC_LALT)
+// custom keycodes
+#define UNO RGUI(KC_LSFT) // super + shift (i3wm)
+#define DUE RGUI(KC_LALT) // super + alt (i3wm)
+#define TMUX LCTL(KC_B) // tmux prefix ctrl + b
 
+#define CAPSYM LT(SYMB, KC_CAPS) // caps lock or hold for symbols layer
+#define H_SYM LT(SYMB, KC_H) // H or hold for symbol layer
+#define SC_MED LT(MDIA, KC_SCLN) // semicolon or hold for media layer
+
+#define OSHFT OSM(MOD_LSFT) // One shot key shift
+
+#define Z_CTRL CTL_T(KC_Z) // Z or hold for ctrl
+#define SL_CTL CTL_T(KC_Z) // / or hold for ctrl
+
+#define B_ALTGR ALGR_T(KC_B) // b or hold for alt_gr
+
+// MACROS
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
