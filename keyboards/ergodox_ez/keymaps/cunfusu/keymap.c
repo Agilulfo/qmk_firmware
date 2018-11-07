@@ -54,8 +54,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |ace   | End  |       | PgDn |        |      |
  *                                 `--------------------'       `----------------------'
  */
-// If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_ESC,   KC_1,     KC_2,      KC_3,     KC_4,     KC_5,     TG(MDIA),
@@ -97,7 +95,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// SYMBOLS
 [SYMB] = LAYOUT_ergodox(
        // left hand
        VRSN,     KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    _______,
@@ -139,7 +136,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      | down |       | Prew |      |      |
  *                                 `--------------------'       `--------------------'
  */
-// MEDIA AND MOUSE
 [MDIA] = LAYOUT_ergodox(
        _______,  _______,  _______,  _______,  _______,  _______,  _______,
        _______,  _______,  _______,  KC_MS_U,  _______,  _______,  _______,
