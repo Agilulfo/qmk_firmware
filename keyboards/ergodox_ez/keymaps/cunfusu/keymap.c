@@ -26,8 +26,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab    |   Q  |   W  |   E  |   R  |   T  | DUE  |           | UNO  |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | Caps/L1|   A  |   S  |   D  | F/L3 |   G  |------|           |------| H/L1 |   J  |   K  |   L  |; / L2|   '    |
- * |--------+------+------+------+------+------|      |           | Meta |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl|   =    |
+ * |--------+------+------+------+------+------| CTRL |           | Meta |------+------+------+------+------+--------|
+ * | LShift |Z/Ctrl|   X  |   C  |   V  |ALGR/B|  + B |           |      |   N  |   M  |   ,  |   .  |//Ctrl|   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      | Alt  | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,             KC_1,              KC_2,     KC_3,   KC_4,   KC_5,   TG(MDIA),
         KC_TAB,             KC_Q,              KC_W,     KC_E,   KC_R,   KC_T,   DUE,
         LT(SYMB, KC_CAPS),  KC_A,              KC_S,     KC_D,   KC_F,   KC_G,
-        OSM(MOD_LSFT),      CTL_T(KC_Z),       KC_X,     KC_C,   KC_V,   KC_B,   KC_TRNS,
+        OSM(MOD_LSFT),      CTL_T(KC_Z),       KC_X,     KC_C,   KC_V,   ALGR_T(KC_B), LCTL(KC_B),
         KC_TRNS,            KC_TRNS,           KC_LALT,  KC_LEFT,KC_RGHT,
                                                      KC_PPLS,  KC_PMNS,
                                                                KC_HOME,
