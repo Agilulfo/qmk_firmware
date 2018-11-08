@@ -24,6 +24,8 @@
 
 #define B_ALTGR ALGR_T(KC_B) // b or hold for alt_gr
 
+#define PANIC TO(BASE) // remove all the active layers and return to the base layer
+
 // MACROS
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -44,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------| CTRL |           | Meta |------+------+------+------+------+--------|
  * | LShift |Z/Ctrl|   X  |   C  |   V  |ALGR/B|  + B |           |      |   N  |   M  |   ,  |   .  |//Ctrl|   =    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      | Alt  | Left | Right|                                       |  Up  | Down |   [  |   ]  |      |
+ *   |      |      | Alt  | Left | Right|                                       |  Up  | Down |   [  |   ]  |PANIC |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
  *                                        |  +   |  -   |       | PrScr| Insert |
@@ -69,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         UNO,      KC_Y,     KC_U,      KC_I,     KC_O,     KC_P,     KC_BSLS,
                   H_SYM,    KC_J,      KC_K,     KC_L,     SC_MED,   KC_QUOT,
         KC_LGUI,  KC_N,     KC_M,      KC_COMM,  KC_DOT,   SL_CTL,   KC_EQL,
-                            KC_UP,     KC_DOWN,  KC_LBRC,  KC_RBRC,  _______,
+                            KC_UP,     KC_DOWN,  KC_LBRC,  KC_RBRC,  PANIC,
         KC_PSCR,  KC_INS,
         KC_PGUP,
         KC_PGDN,  KC_DELT,  KC_ENT
