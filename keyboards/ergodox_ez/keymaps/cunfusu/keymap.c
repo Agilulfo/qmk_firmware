@@ -20,7 +20,7 @@
 #define OSHFT OSM(MOD_LSFT) // One shot key shift
 
 #define Z_CTRL CTL_T(KC_Z) // Z or hold for ctrl
-#define SL_CTL CTL_T(KC_Z) // / or hold for ctrl
+#define SL_CTL CTL_T(KC_SLSH) // / or hold for ctrl
 
 #define B_ALTGR ALGR_T(KC_B) // b or hold for alt_gr
 
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,   KC_1,     KC_2,      KC_3,     KC_4,     KC_5,     TG(MDIA),
         KC_TAB,   KC_Q,     KC_W,      KC_E,     KC_R,     KC_T,     DUE,
-        H_SYM,    KC_A,     KC_S,      KC_D,     KC_F,     KC_G,
+        CAPSYM,   KC_A,     KC_S,      KC_D,     KC_F,     KC_G,
         OSHFT,    Z_CTRL,   KC_X,      KC_C,     KC_V,     B_ALTGR,  TMUX,
         _______,  _______,  KC_LALT,   KC_LEFT,  KC_RGHT,
                                                            KC_PPLS,  KC_PMNS,
