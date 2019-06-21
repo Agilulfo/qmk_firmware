@@ -24,14 +24,15 @@
 
 #define B_ALTGR ALGR_T(KC_B) // b or hold for alt_gr
 
-#define PANIC TO(BASE) // remove all the active layers and return to the base layer
+#define PANIC TO(BASE) // remove all the active layers and return to the base layers
 
 // MACROS
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
   VRSN,
-  IPDB
+  IPDB,
+  LOCK,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -122,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | KC_SLEP|      |      |      |      |      |      |           |      |      |      |      |      |      | KC_WAKE|
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      | MsUp |      |      |      |           |      |      |      |  Up  |      |      | VolUp  |
+ * | LOCK   |      |      | MsUp |      |      |      |           |      |      |      |  Up  |      |      | VolUp  |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |MsLeft|MsDown|MsRght|      |------|           |------|      | Left | Down | Right| xxxx | Mute   |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
@@ -140,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [MDIA] = LAYOUT_ergodox(
        KC_SLEP,  _______,  _______,  _______,  _______,  _______,  _______,
-       _______,  _______,  _______,  KC_MS_U,  _______,  _______,  _______,
+          LOCK,  _______,  _______,  KC_MS_U,  _______,  _______,  _______,
        _______,  _______,  KC_MS_L,  KC_MS_D,  KC_MS_R,  _______,
        _______,  _______,  _______,  _______,  _______,  _______,  _______,
        _______,  _______,  _______,  _______,  _______,
@@ -239,6 +240,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case IPDB:
       if (record->event.pressed) {
         SEND_STRING ("import ipdb; ipdb.set_trace()" SS_TAP(X_TAB));
+      }
+      return false;
+      break;
+    case LOCK:
+      if (record->event.pressed) {
+        host_consumer_send(0x19E);
+      }
+      else {
+        host_consumer_send(0);
       }
       return false;
       break;
