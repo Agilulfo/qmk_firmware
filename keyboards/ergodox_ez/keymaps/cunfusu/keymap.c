@@ -24,8 +24,6 @@
 
 #define B_ALTGR ALGR_T(KC_B) // b or hold for alt_gr
 
-#define PANIC TO(BASE) // remove all the active layers and return to the base layers
-
 // MACROS
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -33,6 +31,7 @@ enum custom_keycodes {
   VRSN,
   IPDB,
   LOCK,
+  PANIC,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -222,6 +221,12 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
   return MACRO_NONE;
 };
 
+void caps_lock_clear(void) {
+  if (host_keyboard_leds() & (1<<USB_LED_CAPS_LOCK)){
+    tap_code(KC_CAPS);
+  }
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // dynamically generate these.
@@ -249,6 +254,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       else {
         host_consumer_send(0);
+      }
+      return false;
+      break;
+    case PANIC:
+      if (record->event.pressed) {
+	    caps_lock_clear();
+		layer_clear();
+		ergodox_blink_all_leds();
       }
       return false;
       break;
